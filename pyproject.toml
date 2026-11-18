@@ -1,0 +1,29 @@
+[project]
+name = "monograph-mcp"
+version = "1.1.0"
+description = "Connect Monograph to Claude Code, ChatGPT and any AI agent through Cotlet.dev, a hosted MCP server. No Monograph API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["monograph", "monograph api", "monograph mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/monograph-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=monograph"
+Source = "https://github.com/cotlet-connect/monograph-mcp"
+
+[project.scripts]
+monograph-mcp = "monograph_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"monograph_agent.py" = "monograph_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["monograph_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
